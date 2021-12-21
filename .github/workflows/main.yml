@@ -56,7 +56,7 @@ jobs:
         script: |
           cd /steveYe/project/toolFrontProject
           rm -rf *
-          wget https://github.com/SteveYe-YJB/backServer/releases/latest/download/release.tgz -O release.tgz
+          wget https://github.com/SteveYe-YJB/v-First/releases/latest/download/release.tgz -O release.tgz
           tar zxvf release.tgz
     # npm install --production
     # pm2 reload pm2.config.json
