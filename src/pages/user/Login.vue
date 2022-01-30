@@ -50,7 +50,7 @@ const userLogin = async () => {
   console.log(store.state.userName)
   let token = res.token
   window.localStorage.setItem('token',token)
-  console.log(token)
+  // console.log(token)
   router.push('/')
 }
 
