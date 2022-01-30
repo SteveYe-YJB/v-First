@@ -4,7 +4,7 @@
   <div class="login">
     <div style="color:#8898aa">Sign in with credentials</div>
     <div style="padding: 0 64px;margin-top: 20px">
-      <a-input class="login-input"  size="large" v-model:value="userAccount" placeholder="请输入账号"></a-input>
+      <a-input class="login-input"  size="large" v-model:value="userAccount" placeholder="请输入您的账号"></a-input>
       <a-input-password class="login-input"  size="large" v-model:value="passWord" placeholder="请输入密码"></a-input-password>
     </div>
     <div>
