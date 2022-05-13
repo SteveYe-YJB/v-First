@@ -55,6 +55,10 @@ const routes = [
 
         ]
     },
+    {
+        path: '/test',
+        component: () => import('../pages/user/test.vue')
+    },
 
 ]
 
