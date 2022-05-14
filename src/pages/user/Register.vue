@@ -14,8 +14,26 @@ const props = defineProps({
   item: {
     type: Object,
     default: () => {}
+  },
+  width: {
+    type: String,
+    default: () => ''
+  },
+  height: {
+    type: String,
+    default: () => ''
   }
 })
+
+let charWidth = ref('50%')
+let charHeight = ref(`${window.innerWidth*0.75}px`)
+const widthConfig = {
+  1: 60,
+  2: 60,
+  3: 50,
+  4: 40,
+  5: 40
+}
 
 // 通过ref获得DOM
 let chartRef = ref()
@@ -30,6 +48,8 @@ onUnmounted(()=>{
 })
 
 onMounted(()=>{
+  if(props.width) charWidth.value = props.width
+  if(props.height) charHeight.value = props.height
   myChart = echarts.init(chartRef.value)
   const option = {
     toolbox: {
@@ -115,7 +135,7 @@ onMounted(()=>{
     },
     series: [
       {
-        barWidth: 60,
+        barWidth: props.item.value.length && widthConfig[props.item.value.length] ? widthConfig[props.item.value.length] : 60,
         data: props.item.value.map((item)=>{return item.value}),
         type: 'bar'
       }
@@ -123,6 +143,7 @@ onMounted(()=>{
   };
   myChart2.setOption(option2)
 })
+
 </script>
 
 <style>
@@ -132,7 +153,7 @@ onMounted(()=>{
   justify-content: center;
 }
 .chart {
-  width: 800px;
-  height: 600px;
+  width: v-bind(charWidth);
+  height: v-bind(charHeight);
 }
 </style>
